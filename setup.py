@@ -5,7 +5,7 @@ from setuptools import setup
 
 here = os.path.abspath(os.path.dirname(__file__))
 
-package = "rpcm"
+package = "jwl_rpcm"
 
 about = {}
 with open(os.path.join(here, package, "__about__.py"), "r", "utf-8") as f:
@@ -37,5 +37,5 @@ setup(name=about["__title__"],
       python_requires=">=3",
       entry_points="""
           [console_scripts]
-          rpcm=rpcm.cli:main
+          jwl_rpcm=jwl_rpcm.cli:main
       """)

@@ -4,7 +4,7 @@ import warnings
 import numpy as np
 import rasterio
 
-from rpcm import rpc_model
+from jwl_rpcm import rpc_model
 
 
 warnings.filterwarnings("ignore",

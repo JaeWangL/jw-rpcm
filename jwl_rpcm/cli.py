@@ -2,7 +2,7 @@ import argparse
 import numpy as np
 import geojson
 
-import rpcm
+import jwl_rpcm
 
 
 def valid_geojson(filepath):
@@ -98,7 +98,7 @@ def main():
     args = parser.parse_args()
 
     if args.cmd == 'footprint':
-        rpcm.image_footprint(args.img, args.z, verbose=True)
+        jwl_rpcm.image_footprint(args.img, args.z, verbose=True)
 
     elif args.cmd == 'projection':
         if args.points and (args.lat is not None or args.lon is not None):
@@ -106,11 +106,11 @@ def main():
         if not args.points and (args.lon is None or args.lat is None):
             parser.error('either --points or {--lat, --lon} must be defined')
         if args.points:
-            rpcm.projection(args.img, *np.loadtxt(args.points).T,
+            jwl_rpcm.projection(args.img, *np.loadtxt(args.points).T,
                             crop_path=args.crop, svg_path=args.svg,
                             verbose=True)
         else:
-            rpcm.projection(args.img, args.lon, args.lat, args.z,
+            jwl_rpcm.projection(args.img, args.lon, args.lat, args.z,
                             crop_path=args.crop, svg_path=args.svg,
                             verbose=True)
 
@@ -122,17 +122,17 @@ def main():
                                 None):
             parser.error('either --points or {-x, -y, -z} must be defined')
         if args.points:
-            rpcm.localization(args.img, *np.loadtxt(args.points).T,
+            jwl_rpcm.localization(args.img, *np.loadtxt(args.points).T,
                               crop_path=args.crop, verbose=True)
         else:
-            rpcm.localization(args.img, args.x, args.y, args.z,
+            jwl_rpcm.localization(args.img, args.x, args.y, args.z,
                               crop_path=args.crop, verbose=True)
 
     elif args.cmd == 'crop':
-        rpcm.crop(args.crop, args.img, args.aoi, args.z)
+        jwl_rpcm.crop(args.crop, args.img, args.aoi, args.z)
 
     elif args.cmd == 'angle':
-        rpcm.angle_between_views(args.img1, args.img2, args.lon, args.lat,
+        jwl_rpcm.angle_between_views(args.img1, args.img2, args.lon, args.lat,
                                  args.z, verbose=True)
 
 

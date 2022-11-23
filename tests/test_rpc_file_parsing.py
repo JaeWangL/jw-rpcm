@@ -2,7 +2,7 @@ import os
 
 import pytest
 
-from rpcm import rpc_from_rpc_file
+from jwl_rpcm import rpc_from_rpc_file
 
 here = os.path.abspath(os.path.dirname(__file__))
 files_dir = os.path.join(here, "test_rpc_files")
