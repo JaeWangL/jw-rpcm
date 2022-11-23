@@ -7,12 +7,12 @@ import rasterio
 import rasterio.warp
 import srtm4
 
-from rpcm import rpc_model
-from rpcm import utils
-from rpcm.rpc_model import RPCModel
-from rpcm.rpc_model import rpc_from_geotiff
-from rpcm.rpc_model import rpc_from_rpc_file
-from rpcm.__about__ import __version__
+from jwl_rpcm import rpc_model
+from jwl_rpcm import utils
+from jwl_rpcm.rpc_model import RPCModel
+from jwl_rpcm.rpc_model import rpc_from_geotiff
+from jwl_rpcm.rpc_model import rpc_from_rpc_file
+from jwl_rpcm.__about__ import __version__
 
 
 warnings.filterwarnings("ignore",

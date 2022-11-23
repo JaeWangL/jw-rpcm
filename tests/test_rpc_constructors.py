@@ -1,7 +1,7 @@
 import os
 
-from rpcm import RPCModel
-from rpcm.rpc_file_readers import read_rpc_file
+from jwl_rpcm import RPCModel
+from jwl_rpcm.rpc_file_readers import read_rpc_file
 
 here = os.path.abspath(os.path.dirname(__file__))
 files_dir = os.path.join(here, "test_rpc_files")
