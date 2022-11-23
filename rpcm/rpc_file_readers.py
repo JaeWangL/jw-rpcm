@@ -4,7 +4,7 @@
 
 
 from xml.etree import ElementTree
-
+from urllib.request import urlopen
 
 def read_rpc_file(rpc_file):
     """
@@ -20,8 +20,12 @@ def read_rpc_file(rpc_file):
 
     """
 
-    with open(rpc_file) as f:
-        rpc_content = f.read()
+    if (rpc_file.startswith('http')):
+        with urlopen(rpc_file) as f:
+            rpc_content = f.read().decode('utf-8')
+    else:
+        with open(rpc_file) as f:
+            rpc_content = f.read()
 
     if rpc_file.lower().endswith('xml'):
         try:
